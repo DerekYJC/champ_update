@@ -19,7 +19,7 @@ git clone https://github.com/DerekYJC/champ_update.git
 Optionally, you can install into a virtual environment (recommended):
 
 ```
-cd champ
+cd champ_update
 virtualenv env
 . env/bin/activate
 ```
