@@ -118,7 +118,8 @@ class FastqImageAligner(object):
             log.debug("Align to ceiling layer")
             possible_tiles = [self.fastq_tiles[key] for key in possible_tile_keys
                               if key in self.fastq_tiles]
-
+        log.debug("Possible tiles...")
+        log.debug(possible_tiles)
         impossible_tiles = [tile for tile in self.fastq_tiles.values() if tile not in possible_tiles]
         impossible_tiles.sort(key=lambda tile: -len(tile.read_names))
         control_tiles = impossible_tiles[:2]
