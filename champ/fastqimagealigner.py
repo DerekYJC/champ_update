@@ -133,6 +133,8 @@ class FastqImageAligner(object):
         self.hitting_tiles = []
         for tile in possible_tiles:
             max_corr, align_tr = tile.fft_align_with_im(self.image_data)
+            print "SNR is " + str(max_corr/self.control_corr)
+            print "Control SNR is " + str(self.control_corr)
             if max_corr > snr_thresh * self.control_corr:
                 tile.set_aligned_rcs(align_tr)
                 tile.snr = max_corr / self.control_corr
