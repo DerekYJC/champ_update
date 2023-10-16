@@ -63,7 +63,7 @@ def get_existing_metadata_filename(image_directory):
     return filename
 
 
-def determine_channel_names(image_directory):
+def determine_channel_names(image_directory, override_meta):
     """
     Looks at a single concentration/timepoint at random and gets all the channel names
     
@@ -72,7 +72,7 @@ def determine_channel_names(image_directory):
     channels = set()
     paths = get_all_tif_paths(image_directory)
     for directory, tifs in paths.items():
-        for channel in load_channel_names(tifs):
+        for channel in load_channel_names(tifs, override_meta):
             channels.add(channel)
         break
     return tuple(channels)

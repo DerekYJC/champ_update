@@ -158,6 +158,22 @@ class CommandLineArguments(object):
     def target_sequence_file(self):
         return self._arguments['--target-sequence-file'] or False
 
+    @property
+    def floor_alignment(self):
+        return self._arguments['--floor'] or False
+    
+    @property
+    def full_search(self):
+        return self._arguments['--full-search'] or False
+    
+    @property
+    def sub_size(self):
+        return int(self._arguments['--subdivision-size'] or 512)
+    
+    @property
+    def override_meta(self):
+        return self._arguments['--override-meta'] or False
+
 
 class PathInfo(object):
     """ Parses user-provided alignment parameters and provides a default in case no value was given. """
