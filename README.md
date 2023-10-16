@@ -13,7 +13,7 @@ CHAMP has only been run on Ubuntu. You'll need a few dependencies first:
 
 ```
 sudo apt install -y build-essential git sextractor samtools bowtie2 virtualenv python-dev zlib1g-dev
-https://github.com/DerekYJC/champ_update.git
+git clone https://github.com/DerekYJC/champ_update.git
 ```
 
 Optionally, you can install into a virtual environment (recommended):
