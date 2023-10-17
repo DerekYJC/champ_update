@@ -215,7 +215,7 @@ class FastqImageAligner(object):
         else:
             good_hit_threshold = np.percentile(self.hit_dists(exclusive_hits), 95)
         second_neighbor_thresh = 2 * good_hit_threshold
-
+        log.debug("Good hit threshold is %f , Secpnd neighbor threshold is %f" % (good_hit_threshold, second_neighbor_thresh))
         exclusive_hits = set(hit for hit in exclusive_hits
                              if self.single_hit_dist(hit) <= good_hit_threshold)
 
