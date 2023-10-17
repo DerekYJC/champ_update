@@ -59,12 +59,14 @@ def main(clargs):
 
         log.info("Creating perfect target read name files.")
         for target_name, perfect_read_names in determine_perfect_target_reads(targets, read_names_given_seq):
+            log.debug(target_name + '/t' + perfect_read_names)
             formatted_name = 'perfect_target_%s' % target_name.replace('-', '_').lower()
             write_read_names(perfect_read_names, formatted_name, clargs.output_directory, usable_read)
 
         # find imperfect target reads
         log.info("Creating target read name files.")
         for target_name, read_names in determine_target_reads(targets, read_names_given_seq):
+            log.debug(target_name + '/t' + perfect_read_names)
             formatted_name = 'target_%s' % target_name.replace('-', '_').lower()
             write_read_names(read_names, formatted_name, clargs.output_directory, usable_read)
 
