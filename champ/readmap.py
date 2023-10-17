@@ -137,8 +137,8 @@ class FastqReadClassifier(object):
     def paired_call(self, fastq_file_1, fastq_file_2):
         command = self._common_command + ('-1 ' + fastq_file_1,
                                           '-2 ' + fastq_file_2,
-                                          '-S /home/champ_test/chimp.sam',
-                                          '2>&1 | tee /home/champ_test/error.txt')
+                                          '-S chimp.sam',
+                                          '2>&1 | tee error.txt')
         return self._run(command)
 
     def single_call(self, fastq_file):
