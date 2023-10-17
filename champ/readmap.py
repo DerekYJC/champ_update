@@ -163,7 +163,7 @@ class FastqReadClassifier(object):
             #print "sam_command2 finished!"
             #subprocess.call('samtools index final.bam final.bam.bai', **shell_options)
             subprocess.call('pwd', **shell_options)
-            for r in pysam.Samfile('final.bam'):
+            for r in pysam.Samfile('final.bam', check_sq=False):
                 yield r.qname
         for temp_file in ('chimp.sam', 'final.bam', 'error.txt', 'final.bam.bai'):
             try:
