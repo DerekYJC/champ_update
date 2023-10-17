@@ -149,17 +149,23 @@ class FastqReadClassifier(object):
         with open('/dev/null', 'w+') as devnull:
             shell_options = dict(shell=True, stderr=devnull, stdout=devnull)
             subprocess.call(' '.join(command), **shell_options)
-            sam_command = 'samtools view -bS /home/champ_test/chimp.sam | samtools sort /home/champ_test/chimp.sam -o /home/champ_test/final.bam'
+            #sam_command = 'samtools view -bS chimp.sam | samtools sort chimp.sam -o final.bam'
+            sam_command = 'samtools view -bS sample.sam > final.bam'
             subprocess.call(sam_command, **shell_options)
+            sam_command = 'samtools sort final.bam -o final.bam'
+            subprocess.call(sam_command, **shell_options)
+            subprocess.call('samtools index final.bam final.bam.bai', **shell_options)
+
+            #subprocess.call(sam_command, **shell_options)
             #print "sam_command1 finished!"
             #sam_command = 'samtools sort final.bam -o final.bam'
             #subprocess.call(sam_command, **shell_options)
             #print "sam_command2 finished!"
-            subprocess.call('samtools index /home/champ_test/final.bam /home/champ_test/final.bam.bai', **shell_options)
+            #subprocess.call('samtools index final.bam final.bam.bai', **shell_options)
             subprocess.call('pwd', **shell_options)
-            for r in pysam.Samfile('/home/champ_test/final.bam'):
+            for r in pysam.Samfile('final.bam'):
                 yield r.qname
-        for temp_file in ('/home/champ_test/chimp.sam', '/home/champ_test/final.bam', '/home/champ_test/error.txt', '/home/champ_test/final.bam.bai'):
+        for temp_file in ('chimp.sam', 'final.bam', 'error.txt', 'final.bam.bai'):
             try:
                 os.unlink(temp_file)
             except (OSError, IOError):
