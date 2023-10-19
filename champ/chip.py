@@ -39,6 +39,10 @@ class BaseChip(object):
                 tile_map[tile_map_column].append(self._format_tile_number(expected + 1))
             if expected > min_tile:
                 tile_map[tile_map_column].append(self._format_tile_number(expected - 1))
+
+        log.debug("See what the tile map is?")
+        log.debug(tile_map)
+        
         return tile_map
 
     def _format_tile_number(self, tile):
