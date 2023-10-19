@@ -124,6 +124,8 @@ def get_end_tiles(cluster_strategies, rotation_adjustment, h5_filenames, alignme
     right_end_tiles = {}
     left_end_tiles = {}
     all_tiles = sequencing_chip.left_side_tiles + sequencing_chip.right_side_tiles
+    log.debug("What are all tiles...")
+    log.debug(all_tiles)
     
     if full_search:
         left_side = all_tiles
