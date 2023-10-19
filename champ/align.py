@@ -160,6 +160,8 @@ def get_end_tiles(cluster_strategies, rotation_adjustment, h5_filenames, alignme
     default_right_tile, default_right_column = decide_default_tiles_and_columns(right_end_tiles)
     end_tiles = build_end_tiles(h5_filenames, sequencing_chip, left_end_tiles, default_left_tile, right_end_tiles,
                                 default_right_tile, default_left_column, default_right_column)
+    log.debug("What are end tiles...")
+    log.debug(end_tiles)
     return end_tiles
 
 
