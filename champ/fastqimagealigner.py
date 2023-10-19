@@ -134,6 +134,8 @@ class FastqImageAligner(object):
         impossible_tiles.sort(key=lambda tile: -len(tile.read_names))
         control_tiles = impossible_tiles[:2]
         self.image_data.set_fft(self.fq_im_scaled_dims)
+        log.debug("Image shape of (%d , %d) having the FFT of shape (%d , %d)" % (self.image.shape[0], self.image.shape[1],
+                                                                                 self.fft.shape[0], self.fft.shape[1]))
         self.control_corr = 0
 
         for control_tile in control_tiles:
