@@ -1,6 +1,8 @@
+import logging
 from collections import defaultdict
 import itertools
 
+log = logging.getLogger(__name__)
 
 class BaseChip(object):
     def __init__(self, tile_count):
