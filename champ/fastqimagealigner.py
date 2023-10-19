@@ -126,11 +126,9 @@ class FastqImageAligner(object):
         for t_ in possible_tiles: 
             # Make the ffts
             fq_image = t_.image()
-            self.image_data.set_fft(self.fq_im_scaled_dims)
-            padded_fq_im = misc.pad_to_size(fq_image, self.image_data.fft.shape)
-            fq_im_fft = np.fft.fft2(padded_fq_im)
             np.save(os.getcwd() + "/" + t_.key + "_fq_image.npy", fq_image)
-            np.save(os.getcwd() + "/" + t_.key + "_fq_im_fft.npy", fq_im_fft)
+            relevant_info = [t_.offset, t_.scale]
+            np.save(os.getcwd() + "/" + t_.key + "_info.npy", relevant_info)
         
         impossible_tiles = [tile for tile in self.fastq_tiles.values() if tile not in possible_tiles]
         impossible_tiles.sort(key=lambda tile: -len(tile.read_names))
