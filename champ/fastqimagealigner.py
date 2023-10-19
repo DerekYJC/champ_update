@@ -1,3 +1,4 @@
+import os
 import logging
 import time
 from copy import deepcopy
@@ -120,6 +121,15 @@ class FastqImageAligner(object):
                               if key in self.fastq_tiles]
         #log.debug("Possible tiles...")
         #log.debug(possible_tiles)
+        log.debug("save the tiles information...")
+        for t_ in possible_tiles: 
+            # Make the ffts
+            fq_image = t_.image()
+            padded_fq_im = misc.pad_to_size(fq_image, self.image_data.fft.shape)
+            fq_im_fft = np.fft.fft2(padded_fq_im)
+            np.save(os.getcwd() + "/" + t_.key + "_fq_image.npy", fq_image)
+            np.save(os.getcwd() + "/" + t_.key + "_fq_im_fft.npy", fq_im_fft)
+        
         impossible_tiles = [tile for tile in self.fastq_tiles.values() if tile not in possible_tiles]
         impossible_tiles.sort(key=lambda tile: -len(tile.read_names))
         control_tiles = impossible_tiles[:2]
