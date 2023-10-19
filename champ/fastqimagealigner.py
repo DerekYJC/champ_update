@@ -126,6 +126,7 @@ class FastqImageAligner(object):
         for t_ in possible_tiles: 
             # Make the ffts
             fq_image = t_.image()
+            self.image_data.set_fft(self.fq_im_scaled_dims)
             padded_fq_im = misc.pad_to_size(fq_image, self.image_data.fft.shape)
             fq_im_fft = np.fft.fft2(padded_fq_im)
             np.save(os.getcwd() + "/" + t_.key + "_fq_image.npy", fq_image)
