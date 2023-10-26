@@ -59,6 +59,8 @@ def main(clargs):
 
         log.info("Creating perfect target read name files.")
         for target_name, perfect_read_names in determine_perfect_target_reads(targets, read_names_given_seq):
+            log.debug(target_name)
+            log.debug(perfect_read_names)
             log.debug(target_name + '/t' + perfect_read_names)
             formatted_name = 'perfect_target_%s' % target_name.replace('-', '_').lower()
             write_read_names(perfect_read_names, formatted_name, clargs.output_directory, usable_read)
