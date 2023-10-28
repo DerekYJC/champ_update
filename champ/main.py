@@ -8,6 +8,7 @@ Usage:
   champ align IMAGE_DIRECTORY [--rotation-adjustment=ROTATION_ADJUSTMENT] [--min-hits=MIN_HITS] [--snr=SNR] [--process-limit=PROCESS_LIMIT] [--floor] [--full-search] [--make-pdfs] [--fiducial-only] [-v | -vv | -vvv]
   champ info IMAGE_DIRECTORY
   champ notebooks
+  champ link FASTQ_DIRECTORY OUTPUT_DIRECTORY CHIP_ID [--log-p-file=LOG_P_FILE] [--min-len=MIN_LEN] [--max-len=MAX_LEN] [-v | -vv | -vvv]
 
 Options:
   -h --help     Show this screen.
