@@ -26,7 +26,7 @@ import logging
 import os
 from champ.config import CommandLineArguments
 from champ.constants import VERSION
-from champ.controller import align, initialize, h5, mapreads, info, notebooks
+from champ.controller import align, initialize, h5, mapreads, info, notebooks, link
 from docopt import docopt
 
 
@@ -46,6 +46,7 @@ def main(**kwargs):
                 'init': initialize,
                 'h5': h5,
                 'map': mapreads,
+                'link': link,
                 'info': info,
                 'notebooks': notebooks}
 
