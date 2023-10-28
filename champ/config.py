@@ -138,6 +138,10 @@ class CommandLineArguments(object):
         return self._arguments.get('--phix-bowtie')
 
     @property
+    def chip_id(self):
+        return self._arguments['CHIP_ID']
+    
+    @property
     def ports_on_right(self):
         return self._arguments['--ports-on-right']
 
