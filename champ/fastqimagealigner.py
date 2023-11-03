@@ -122,13 +122,13 @@ class FastqImageAligner(object):
                               if key in self.fastq_tiles]
         #log.debug("Possible tiles...")
         #log.debug(possible_tiles)
-        log.debug("save the tiles information...")
-        for t_ in possible_tiles: 
-            # Make the ffts
-            fq_image = t_.image()
-            np.save(os.getcwd() + "/" + t_.key + "_fq_image.npy", fq_image)
-            relevant_info = [t_.offset, t_.scale]
-            np.save(os.getcwd() + "/" + t_.key + "_info.npy", relevant_info)
+        #log.debug("save the tiles information...")
+        #for t_ in possible_tiles: 
+        #    # Make the ffts
+        #    fq_image = t_.image()
+        #    np.save(os.getcwd() + "/" + t_.key + "_fq_image.npy", fq_image)
+        #    relevant_info = [t_.offset, t_.scale]
+        #    np.save(os.getcwd() + "/" + t_.key + "_info.npy", relevant_info)
         
         impossible_tiles = [tile for tile in self.fastq_tiles.values() if tile not in possible_tiles]
         impossible_tiles.sort(key=lambda tile: -len(tile.read_names))
