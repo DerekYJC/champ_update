@@ -137,10 +137,14 @@ class FastqReadClassifier(object):
         self._common_command = ('bowtie2', '--local', '-p 15', '--no-unal', '-x %s' % clean_path)
 
     def paired_call(self, fastq_file_1, fastq_file_2):
+        log.debug("I am running the following commands...")
+        log.debug(fastq_file_1)
+        log.debug(fastq_file_2)
         command = self._common_command + ('-1 ' + fastq_file_1,
                                           '-2 ' + fastq_file_2,
                                           '-S chimp.sam',
                                           '2>&1 | tee error.txt')
+        log.debug(command)
         return self._run(command)
 
     def single_call(self, fastq_file):
