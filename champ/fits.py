@@ -86,9 +86,13 @@ class SEConfig(object):
                 pass
 
     def _create_config_files(self):
-        default_text = """DETECT_THRESH 2
-DEBLEND_NTHRESH 64
-DEBLEND_MINCONT 0.00005
+        # default_text = """DETECT_THRESH 2
+#DEBLEND_NTHRESH 64
+#DEBLEND_MINCONT 0.00005
+#"""
+        default_text = """DETECT_THRESH 1
+DEBLEND_NTHRESH 32
+DEBLEND_MINCONT 0.00001
 """
         with open('default.sex', 'w+') as f:
             f.write(default_text)
