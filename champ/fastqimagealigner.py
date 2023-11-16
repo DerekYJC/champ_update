@@ -152,6 +152,7 @@ class FastqImageAligner(object):
         del control_tiles
         self.hitting_tiles = []
         for tile in possible_tiles:
+            log.debug(tile_num[tile])
             max_corr, align_tr = tile.fft_align_with_im(self.image_data)
             log.debug("Tile: %s ---> SNR for %s = %f , max_corr = %f , self.control_corr = %f" % (
                 tile.key, self.image_data.fname, (max_corr / self.control_corr), max_corr, self.control_corr))
