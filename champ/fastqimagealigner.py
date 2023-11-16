@@ -138,6 +138,13 @@ class FastqImageAligner(object):
                                                                                  self.image_data.fft.shape[0], self.image_data.fft.shape[1]))
         self.control_corr = 0
 
+        tile_num = {}
+        for key in possible_tile_keys:
+            for tile in possible_tiles:
+                if self.fastq_tiles[key] == tile:
+                    tile_num[tile] = key
+        log.debug(tile_num)
+        
         for control_tile in control_tiles:
             corr, _ = control_tile.fft_align_with_im(self.image_data)
             if corr > self.control_corr:
